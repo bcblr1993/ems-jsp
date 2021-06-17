@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.emsjsp.dao.EmpDao">
+
+
+    <!--lists-->
+    <select id="lists" resultType="Emp">
+        select id, name, salary, birthday, gender
+        from `emp`
+    </select>
+
+    <!--delete-->
+    <delete id="delete" parameterType="Integer">
+        delete
+        from `emp`
+        where id = #{id}
+    </delete>
+
+    <!--save-->
+    <insert id="save" parameterType="Emp" useGeneratedKeys="true" keyProperty="id">
+        insert into `emp`
+        values (#{id}, #{name}, #{salary}, #{birthday}, #{gender})
+    </insert>
+
+
+    <!--queryById-->
+    <select id="queryById" resultType="Emp">
+        select id,name,salary,birthday,gender from `emp`
+        where id = #{id}
+    </select>
+
+    <!--update-->
+    <update id="update" parameterType="Emp">
+        update `emp` set name=#{name},salary=#{salary},birthday=#{birthday},gender=#{gender}
+        where id=#{id}
+    </update>
+
+</mapper>
