@@ -5,7 +5,7 @@ name: default
 
 server:
   host: tx.chenyn.cn
-  user: root
+  user: chenyn
   password: xiao618%
 
 steps:
