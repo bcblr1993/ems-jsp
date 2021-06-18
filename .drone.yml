@@ -1,0 +1,15 @@
+kind: pipeline
+type: ssh
+name: default
+
+
+server:
+  host: tx.chenyn.cn
+  user: root
+  password: xiao618%
+
+steps:
+  - name: build
+    commands:
+      echo i am xiaochen
+      echo i am xiaoming
