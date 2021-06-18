@@ -5,8 +5,12 @@ name: default
 
 server:
   host: tx.chenyn.cn
-  user: chenyn
-  password: Xiao618%
+  #user: chenyn
+  user:
+    from_secret: username
+  #password: Xiao618%
+  password:
+    from_secret: password
 
 steps:
   - name: build
