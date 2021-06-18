@@ -11,5 +11,5 @@ server:
 steps:
   - name: build
     commands:
-      echo i am xiaochen
-      echo i am xiaoming
+      echo "i am xiaochen"
+      echo "i am xiaoming"
