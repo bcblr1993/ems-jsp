@@ -8,14 +8,11 @@ COPY . /app
 #指定工作目录
 WORKDIR /app
 
-#指定数据卷
-VOLUME /root/.m2/repository:/root/.m2/repository
-
 # 修改maven配置文件
 COPY ./setting.xml /usr/share/maven/conf/setting.xml
 
 # 执行打包
-RUN mvn clean package -q -Dmaven.test.skip=true
+RUN mvn clean package -Dmaven.test.skip=true
 
 # run main
 FROM openjdk:8-jdk
