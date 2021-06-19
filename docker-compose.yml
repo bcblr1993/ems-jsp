@@ -9,6 +9,8 @@ volumes:
 networks:
   ems:
   dev:
+  proxy:
+    external: true
 
 
 services:

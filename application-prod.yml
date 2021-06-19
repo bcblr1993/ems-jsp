@@ -1,7 +1,6 @@
 server:
   port: 8989
   servlet:
-    context-path: /ems
     jsp:
       init-parameters:
         development: true
