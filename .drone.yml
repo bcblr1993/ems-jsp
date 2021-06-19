@@ -34,4 +34,4 @@ steps:
     environment:
       EMS_IMAGE: ems-jsp:${DRONE_TAG##v}
     commands:
-      - docker build -t EMS_IMAGE .
+      - docker build -t $EMS_IMAGE .
