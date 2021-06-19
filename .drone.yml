@@ -29,7 +29,7 @@ steps:
     commands:
       - git init
       - git remote add origin git@github.com:chenyn-java/ems-jsp.git
-      - git fetch --all
+      #- git fetch --all
       - git pull origin ${DRONE_BRANCH}
 
   - name: build

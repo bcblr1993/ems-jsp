@@ -9,10 +9,10 @@ COPY . /app
 WORKDIR /app
 
 # 修改maven配置文件
-COPY ./setting.xml /usr/share/maven/conf/setting.xml
+COPY ./settings.xml /usr/share/maven/conf/settings.xml
 
 # 执行打包
-RUN mvn clean package -Dmaven.test.skip=true
+RUN mvn clean package -q -Dmaven.test.skip=true
 
 # run main
 FROM openjdk:8-jdk
