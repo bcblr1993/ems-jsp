@@ -8,6 +8,9 @@ COPY . /app
 #指定工作目录
 WORKDIR /app
 
+#指定数据卷
+VOLUME /root/.m2/repository:/root/.m2/repository
+
 # 修改maven配置文件
 COPY ./setting.xml /usr/share/maven/conf/setting.xml
 
