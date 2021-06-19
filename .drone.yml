@@ -9,7 +9,6 @@ server:
   #user: chenyn
   user:
     from_secret: username
-  #password: Xiao618%
   password:
     from_secret: password
 
@@ -35,4 +34,12 @@ steps:
 
   - name: build
     commands:
-      - docker build -t ems-jsp .
+      - docker build -t ems-jsp:1.0 .
+
+  - name: run
+    commands:
+      - export SERVICE_DIR=/home/chenyn/services/ems
+      - mkdir -p $${SERVICE_DIR}
+      - docker-compose down apps
+      - sleep 5s
+      - docker-compose up -d

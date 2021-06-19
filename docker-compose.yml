@@ -1,0 +1,49 @@
+version: "3.8"
+
+
+# 声明数据
+
+volumes:
+  data:
+
+networks:
+  ems:
+  dev:
+
+
+services:
+
+  mysql:
+    image: mysql:5.6
+    volumes:
+      - data:/var/lib/mysql
+    environment:
+      - "MYSQL_ROOT_PASSWORD=root"
+    networks:
+      - ems
+      - dev
+
+  apps:
+    image: ems-jsp:1.0
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.qingcheng-admin-api.entrypoints=web, websecure"
+      - "traefik.http.routers.qingcheng-admin-api.rule=Host(`ems.chenyn.cn`)"
+      - "traefik.http.services.qingcheng-admin-api.loadbalancer.server.port=8989"
+    volumes:
+      - ./application-prod.yml:/app/application-prod.yml
+    networks:
+      - ems
+    command: java -jar ems.jar --spring.config.location=/app/application-prod.yml
+
+  sshd:
+    image: docker.io/panubo/sshd:1.3.0
+    networks:
+      - dev
+    volumes:
+      - ./sshd_config:/etc/ssh/sshd_config
+    environment:
+      - "SSH_ENABLE_PASSWORD_AUTH=true"
+      - "SSH_USERS=user:1000:1000"
+    ports:
+      - "22222:22"
