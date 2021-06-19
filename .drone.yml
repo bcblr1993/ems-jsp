@@ -22,7 +22,9 @@ trigger:
     - tag
 
 steps:
-  - name: build
+  - name: clone
     commands:
-      - echo "i am xiaochen"
-      - echo "i am xiaoming"
+      - git init
+      - git remote add origin ${DRONE_GIT_SSH_URL}
+      - git fetch origin +refs/tags/${DRONE_TAG}
+      - git pull origin ${DRONE_BRANCH}
