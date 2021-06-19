@@ -28,7 +28,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.qingcheng-admin-api.entrypoints=web, websecure"
-      - "traefik.http.routers.qingcheng-admin-api.rule=Host(`ems.chenyn.cn`)"
+      - "traefik.http.routers.qingcheng-admin-api.rule=Host(`ems.tx.chenyn.cn`)"
       - "traefik.http.services.qingcheng-admin-api.loadbalancer.server.port=8989"
     volumes:
       - ./application-prod.yml:/app/application-prod.yml
