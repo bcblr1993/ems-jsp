@@ -28,6 +28,6 @@ clone:
 steps:
   - name: clone
     commands:
-      - git clone git@github.com:chenyn-java/ems-jsp.git .
+      - git clone git@github.com:chenyn-java/ems-jsp.git
 
   - name: build
