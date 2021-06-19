@@ -31,3 +31,7 @@ steps:
       - git clone git@github.com:chenyn-java/ems-jsp.git
 
   - name: build
+    environment:
+      EMS_IMAGE: ems-jsp:${DRONE_TAG##v}
+    commands:
+      - docker build -t EMS_IMAGE .
