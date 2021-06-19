@@ -29,7 +29,6 @@ steps:
   - name: clone
     commands:
       - git clone git@github.com:chenyn-java/ems-jsp.git
-      - cd ems-jsp
 
   - name: build
     environment:

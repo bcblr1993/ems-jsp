@@ -2,7 +2,7 @@
 FROM maven:3.8-openjdk-8 as builder
 
 # 复制代码到app目录中
-COPY . /app
+COPY ./ems-jsp /app
 
 #指定工作目录
 WORKDIR /app
