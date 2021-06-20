@@ -36,6 +36,7 @@ services:
       - ./application-prod.yml:/app/application-prod.yml
     networks:
       - ems
+      - proxy
     command: java -jar ems.jar --spring.config.location=/app/application-prod.yml
 
   sshd:
